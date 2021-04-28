@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Проект для хтмлки</title>
+    <style>
+        p { color:  navy; }
+        body {
+            background-image: url("https://media1.tenor.com/images/d966251589bce4e5db91cfb5aa4277e6/tenor.gif?itemid=14732606")
+        }
+        table {
+            width: 100%;
+            border: 20pt;
+        }
+        td {
+            align: "center";
+            bgcolor: "lime";
+            bordercolor: "cyan";
+            fontcolor: "yellow";
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+<p>
+    <font size=20pt color="#ff1493"><left><b>Новостное агентство</b></left></font>
+    <font size=24pt color="#00008b"><b>"Быстроногий питон"</b></font>
+    <font size=16pt color="#228b22"><center><b>Непонятно как, зато быстро!</b></center></font>
+    <table>
+    {%  for item in news %}
+        <tr>
+        <td align="center" border="5pt" bordercolor="green" bgcolor="#dc143c">
+            <font color="#7fffd4" face="Comic Sans">{{ item[0] }}</font>
+        </td>
+        <td align="center" border="5pt" bordercolor="green" bgcolor="#2b0062">
+            <font color="#f4a460" face="Gothic">{{  item[1] }}</font>
+        </td>
+        <td align="center" bgcolor="#adff2f">
+            <font color="#483d8b"><a href = {{  item[2] }}>{{ item[2] }}</a></font>
+        </td>
+        </tr>
+    {% endfor %}
+</table>
+</p>
+</body>
+</html>
