@@ -19,12 +19,17 @@ def show():
     file = 'templates/site.html'
 
     usual_news.sort()
+    all_news_are_for_today = True
     for note in usual_news:
         if not note[0][0].isnumeric():
+            print('/////////////////////////////////////')
             a = list(reversed(usual_news[:usual_news.index(note)]))
             b = list(reversed(usual_news[usual_news.index(note):]))
             usual_news = a + b
+            all_news_are_for_today = False
             break
+    if all_news_are_for_today:
+        usual_news = list(reversed(usual_news))
 
     return render_template('site.html', news=usual_news)
 
